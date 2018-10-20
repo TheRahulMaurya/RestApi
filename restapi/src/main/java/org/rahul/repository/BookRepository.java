@@ -1,5 +1,12 @@
 package org.rahul.repository;
 
-public class BookRepository {
+import java.util.List;
 
+import org.rahul.model.Book;
+
+public interface BookRepository {
+	
+	public List<Book> getAllBooks();
+
+	public Book getBookById(int bookId);
 }

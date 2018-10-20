@@ -1,15 +1,23 @@
 package org.rahul.restapi;
 
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.rahul.model.Book;
+import org.rahul.repository.BookRepository;
+import org.rahul.repository.BookRepositoryImpl;
+
 /**
  * Root resource (exposed at "myresource" path)
  */
-@Path("myresource")
+@Path("book/")
 public class MyResource {
+	
+	BookRepository bookRepo = new BookRepositoryImpl();
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -17,11 +25,21 @@ public class MyResource {
      *
      * @return String that will be returned as a text/plain response.
      */
+	
+//	 @GET
+//	 @Produces(MediaType.TEXT_PLAIN)
+//	 public String getBook()
+//	 {
+//	    return "hello";
+//	 }
+	
+	
 	 @GET
-	 @Produces(MediaType.TEXT_PLAIN)
-	 public String getIt() {
-	        return "Got it!";
-	    }       
+	 @Produces(MediaType.APPLICATION_XML)
+	 public List<Book> getAllBooks()
+	 {
+	    return bookRepo.getAllBooks();
+	 }       
 	
 
     
