@@ -6,7 +6,11 @@ import org.rahul.model.Book;
 
 public interface BookRepository {
 	
-	public List<Book> getAllBooks();
+	List<Book> getAllBooks();
 
-	public Book getBookById(int bookId);
+	Book getBookById(int bookId);
+	
+	void save(Book book);
+
+	void update(Book book);
 }

@@ -69,6 +69,12 @@ public class Book {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
+
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", author=" + author + ", pages=" + pages + ", created="
+				+ created + "]";
+	}
 	
 	
 	

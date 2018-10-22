@@ -1,6 +1,7 @@
 package org.rahul.repository;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.rahul.model.Book;
@@ -13,6 +14,7 @@ public class BookRepositoryImpl implements BookRepository{
 	
 	public BookRepositoryImpl()
 	{
+		System.out.println("------------1--------");
 		bookList = new ArrayList<Book>();
 		Book b1 = new Book(101,"c","Denis Ritchie",324);
 		Book b2 = new Book(102,"c++","James Gosling",354);
@@ -40,6 +42,27 @@ public class BookRepositoryImpl implements BookRepository{
 		}
 		
 		return book;
+	}
+	
+	@Override
+	public void save(Book book)
+	{
+		
+		bookList.add(book);
+		
+	}
+	
+	
+	@Override
+	public void update(Book book)
+	{
+		Book b = getBookById(book.getBookId());
+		b.setAuthor(book.getAuthor());
+		b.setPages(book.getPages());
+		b.setTitle(book.getTitle());
+		b.setCreated(book.getCreated());
+
+		
 	}
 	
 	
